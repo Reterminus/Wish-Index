@@ -530,6 +530,10 @@ label.block .field { margin-top: 0.35rem; }
 .icon-pill.pink { background: var(--pink); color: #1c2430; }
 .icon-pill.cyan { background: var(--cyan-deep); color: #fff; }
 .icon-pill.ink { background: #1c2430; color: #fff; }
+.icon-pill.enter { background: #2154a4; color: #fff; }
+.icon-pill.action { background: #27993a; color: #fff; }
+.icon-pill.const { background: #d02220; color: #fff; }
+.icon-pill.auto { background: #f3981e; color: #fff; }
 html.dark .icon-pill.ink { background: #e8eef6; color: #0c1118; }
 
 .card-text p { margin: 0 0 0.55rem; }

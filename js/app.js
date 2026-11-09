@@ -71,7 +71,7 @@ function renderFilters(idPrefix) {
         <label class="block">Power max<input class="field" data-f="powerMax" inputmode="numeric" value="${escapeHtml(state.powerMax)}" /></label>
       </div>
       <label class="block">Class
-        <input class="field" data-f="classQuery" placeholder="Nature Tone: Bacteria" value="${escapeHtml(state.classQuery)}" />
+        <input class="field" data-f="classQuery" value="${escapeHtml(state.classQuery)}" />
       </label>
       <div>
         <p style="margin:0 0 0.5rem;font-size:0.875rem;font-weight:600">Life Burst</p>
@@ -363,7 +363,7 @@ const facts = [
   ["LRIG Class", card.lrigType || null, false],          // ← use your renamed label here
   ["Use Timing", card.useTiming || null, false],        // ← use your renamed label here
   ["Grow Cost", card.growCost?.length ? renderCostIcons(card.growCost) : null, true],
-["Coin", card.coin?.length ? renderCostIcons(card.coin) : null, true],
+  ["Coin", card.coin?.length ? renderCostIcons(card.coin) : null, true],
   ["Cost", card.cost?.length ? renderCostIcons(card.cost) : null, true],
   // Life Burst intentionally omitted from the UI
   ["Illustrator", card.illustrator || null, false],
@@ -441,7 +441,7 @@ function render() {
           </div>
           <nav class="nav">
             <button type="button" class="chip" data-view="database" data-on="${state.view === "database"}">Database</button>
-            <button type="button" class="chip" data-view="deck" data-on="${state.view === "deck"}">Deck</button>
+            <!--<button type="button" class="chip" data-view="deck" data-on="${state.view === "deck"}">Deck</button>-->
             <button type="button" class="chip" data-view="scan" data-on="${state.view === "scan"}">Scan</button>
           </nav>
           <div class="toggles">
