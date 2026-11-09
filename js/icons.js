@@ -14,6 +14,7 @@ export const ICON_MAP = {
   Turn2: { kind: "pill", label: "Turn 2", tone: "ink" },
   Game1: { kind: "pill", label: "Game 1", tone: "ink" },
   LifeBurst: { kind: "image", src: "icons/lifeburst.png", label: "Life Burst" },
+  Coin: { kind: "image", src: "icons/coin.png", label: "Coin" },
 };
 
 export const COLOR_OPTIONS = [
