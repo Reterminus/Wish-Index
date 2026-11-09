@@ -327,6 +327,7 @@ function renderScan() {
         <button type="button" class="btn-pink" style="width:100%;margin-top:0.75rem" id="scan-capture" ${scanReady ? "" : "disabled"}>
           ${scanReady ? "Capture card" : "Indexing art…"}
         </button>
+        <p class="muted" style="font-size:0.75rem;margin:0.5rem 0 0">Scan is most effective when the card fills out the edges of the camera.</p>
       </div>
       <div>
         <h2 style="margin:0 0 0.75rem;font-size:1.2rem;font-weight:800">Closest matches</h2>
