@@ -92,7 +92,7 @@ export const CARDS = [
     setcodes: ["TOKEN-MIKOMIKO-DEFENSE"],
     name: { en: "Mikomiko Defense Squad", jp: "みこみこ親衛隊" },
     type: "TOKEN",
-    colors: ["Colorless"],
+    colors: [],
     cost: null,
     level: null,
     limit: null,
@@ -105,11 +105,11 @@ export const CARDS = [
     lifeBurst: false,
     illustrator: null,
     text: {
-      en: "A marker gained by your opponent. It is not a card in a deck. Referenced by Mikomiko and Bacteria SIGNI.",
+      en: "[Auto]: At the end of your turn, discard a card. If you do, eliminate this. (\"You\" are the player that gains this. It activates as your ability.)",
       jp: "対戦相手が得るマーカー。デッキに入れるカードではない。",
     },
     images: {
-      en: { default: null, alts: [] },
+      en: { default: "cards/en/mikomiko-defense-squad-A.png", alts: ["cards/en/mikomiko-defense-squad-B.png"] },
       jp: { default: null, alts: [] },
     },
     related: ["mikomiko-three", "deathscythe"],
@@ -161,7 +161,7 @@ export const CARDS = [
     lifeBurst: true,
     illustrator: "れん",
     text: {
-      en: "[Auto]: At the end of your turn, target 1 SIGNI on your opponent's field with no abilities, and put it into the trash.\n[Life Burst]: Target 1 SIGNI on your opponent's field, and it gains 「[Constant]: Can't attack.」 until end of turn. Draw 1 card.",
+      en: "[Auto]: At the end of your turn, target 1 SIGNI on your opponent's field with no abilities, and put it into the trash.\n[LifeBurst]: Target 1 SIGNI on your opponent's field, and it gains 「[Constant]: Can't attack.」 until end of turn. Draw 1 card.",
       jp: "Not available in this sample.",
     },
     images: {
