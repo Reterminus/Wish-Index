@@ -351,30 +351,39 @@ function renderModal() {
   const related = card.related.map((id) => CARD_BY_ID[id]).filter(Boolean);
 
   // html: true → value already contains safe icon markup (cost orbs, etc.)
-const facts = [
-  ["Type", card.type, false],
-  ["Color", card.colors?.length ? renderCostIcons(card.colors) : null, true],
-  ["Set", card.setcodes?.length ? card.setcodes.join(", ") : null, false],
-  ["Level", card.level != null ? String(card.level) : null, false],
-  ["Limit", card.limit != null ? String(card.limit) : null, false],
-  ["Power", card.power != null ? String(card.power) : null, false],
-  ["Class", card.class || null, false],
-  ["Team", card.team || null, false],
-  ["LRIG Class", card.lrigType || null, false],          // ← use your renamed label here
-  ["Use Timing", card.useTiming || null, false],        // ← use your renamed label here
-  ["Grow Cost", card.growCost?.length ? renderCostIcons(card.growCost) : null, true],
-  ["Coin", card.coin?.length ? renderCostIcons(card.coin) : null, true],
-  ["Cost", card.cost?.length ? renderCostIcons(card.cost) : null, true],
-  // Life Burst intentionally omitted from the UI
-  ["Illustrator", card.illustrator || null, false],
-].filter(([, value]) => value != null && value !== "");
+  // Type, Color, and Life Burst are intentionally omitted from the facts list
+  const facts = [
+    ["Set", card.setcodes?.length ? card.setcodes.join(", ") : null, false],
+    ["Level", card.level != null ? String(card.level) : null, false],
+    ["Limit", card.limit != null ? String(card.limit) : null, false],
+    ["Power", card.power != null ? String(card.power) : null, false],
+    ["Class", card.class || null, false],
+    ["Team", card.team || null, false],
+    ["LRIG Class", card.lrigType || null, false],
+    ["Use Timing", card.useTiming || null, false],
+    ["Grow Cost", card.growCost?.length ? renderCostIcons(card.growCost) : null, true],
+    ["Coin", card.coin?.length ? renderCostIcons(card.coin) : null, true],
+    ["Cost", card.cost?.length ? renderCostIcons(card.cost) : null, true],
+    ["Illustrator", card.illustrator || null, false],
+  ].filter(([, value]) => value != null && value !== "");
+
+  // Color icons for the modal header (filter-folder assets)
+  const headerColorIcons = (card.colors || [])
+    .map((c) => {
+      const opt = COLOR_OPTIONS.find((o) => o.id === c);
+      if (!opt) return "";
+      return `<img class="icon-token" src="${opt.icon}" alt="${escapeHtml(c)}" title="${escapeHtml(c)}" />`;
+    })
+    .join("");
 
   return `
     <div class="modal-backdrop" data-close-modal>
       <div class="surface modal" data-stop>
         <div class="modal-head">
           <div>
-            <p style="margin:0;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--cyan-deep)">${escapeHtml(card.type)}</p>
+            <p style="margin:0;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--cyan-deep);display:flex;align-items:center;gap:0.35rem;flex-wrap:wrap">
+              ${headerColorIcons}<span>${escapeHtml(card.type)}</span>
+            </p>
             <h2 style="margin:0.15rem 0 0;font-size:1.5rem;font-weight:800">${escapeHtml(name)}</h2>
           </div>
           <button type="button" class="btn-ghost" style="padding:0.45rem 0.75rem" data-close-modal aria-label="Close">✕</button>
