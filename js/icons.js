@@ -8,19 +8,20 @@ export const ICON_MAP = {
   Colorless: { kind: "image", src: "icons/colorless.png", label: "Colorless" },
 
   Down: { kind: "image", src: "icons/down.png", label: "Down" },
+  Guard: { kind: "image", src: "icons/guard.png", label: "Guard" },
 
   Blue0: { kind: "image", src: "icons/blue0.png", label: "Blue 0" },
   White0: { kind: "image", src: "icons/white0.png", label: "White 0" },
-  Turn1: { kind: "pill", label: "Turn 1", tone: "ink" },
-  Turn2: { kind: "pill", label: "Turn 2", tone: "ink" },
-  Game1: { kind: "pill", label: "Game 1", tone: "ink" },
+  Turn1: { kind: "image", src: "icons/turn1.png", label: "1/Turn", wide: true },
+  Turn2: { kind: "image", src: "icons/turn2.png", label: "2/Turn", wide: true },
+  Game1: { kind: "image", src: "icons/game1.png", label: "Game1", wide: true },
   "Life Burst": { kind: "image", src: "icons/lifeburst.png", label: "Life Burst" },
   Coin: { kind: "image", src: "icons/coin.png", label: "Coin" },
 
-  Auto: { kind: "pill", label: "Auto", tone: "auto" },
-  Action: { kind: "pill", label: "Action", tone: "action" },
-  Constant: { kind: "pill", label: "Const", tone: "const" },
-  Enter: { kind: "pill", label: "Enter", tone: "enter" },
+  Auto: { kind: "image", src: "icons/auto.png", label: "Auto", wide: true },
+  Action: { kind: "image", src: "icons/action.png", label: "Action", wide: true },
+  Constant: { kind: "image", src: "icons/const.png", label: "Constant", wide: true },
+  Enter: { kind: "image", src: "icons/enter.png", label: "Enter", wide: true },
 };
 
 export const COLOR_OPTIONS = [

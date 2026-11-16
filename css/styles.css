@@ -332,7 +332,13 @@ label.block .field { margin-top: 0.35rem; }
 }
 
 .card-frame {
-  display: block;
+  /* Grid stretches row items; <button> content is often vertically
+     centered, which left empty space above the art when a neighbor's
+     name wrapped. Pin content to the top; grow only downward. */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: start;
   width: 100%;
   text-align: left;
   padding: 0;
@@ -557,7 +563,6 @@ html.dark .life-burst-block {
   border-left-color: var(--pink);
 }
 
-
 .deck-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -677,7 +682,11 @@ html.dark .life-burst-block {
   object-fit: cover;
   border-radius: 0.25rem;
 }
-
+.icon-token-wide {
+  width: auto;
+  height: 1.15rem;   /* match text line roughly */
+  max-width: 3.75rem;
+}
 .space-y > * + * { margin-top: 1rem; }
 
 @media (prefers-reduced-motion: reduce) {

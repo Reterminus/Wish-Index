@@ -69,9 +69,10 @@ function renderLine(line) {
 export function iconHtml(name) {
   const spec = ICON_MAP[name];
   if (!spec) return `<span style="font-weight:700">[${escapeHtml(name)}]</span>`;
-  if (spec.kind === "image") {
-    return `<img class="icon-token" src="${spec.src}" alt="${escapeHtml(spec.label)}" title="${escapeHtml(spec.label)}" />`;
-  }
+if (spec.kind === "image") {
+  const cls = spec.wide ? "icon-token icon-token-wide" : "icon-token";
+  return `<img class="${cls}" src="${spec.src}" alt="${escapeHtml(spec.label)}" title="${escapeHtml(spec.label)}" />`;
+}
   if (spec.kind === "swatch") {
     return `<span class="icon-token" title="${escapeHtml(spec.label)}" style="background:${spec.color}"></span>`;
   }
