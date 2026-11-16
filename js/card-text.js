@@ -2,14 +2,53 @@ import { ICON_MAP } from "./icons.js";
 
 const TOKEN = /\[([^\]]+)\]/g;
 
+/** Line starts a Life Burst ability: [Life Burst] only (no legacy LifeBurst). */
+function isLifeBurstStart(line) {
+  return /^\s*\[Life Burst\]/i.test(line);
+}
+
+/**
+ * Line starts a different top-level ability.
+ * Used so text that appears *after* a Life Burst block is not swallowed.
+ */
+function isOtherAbilityStart(line) {
+  if (isLifeBurstStart(line)) return false;
+  return /^\s*\[(Auto|Action|Enter|Constant|On Play|Starting|Once per Game|Once Per Game)\]/i.test(
+    line,
+  );
+}
+
 export function renderCardText(text) {
   if (!text || /^not available/i.test(text.trim())) {
     return `<p class="muted">Not available</p>`;
   }
-  return text
-    .split("\n")
-    .map((line) => `<p>${renderLine(line)}</p>`)
-    .join("");
+
+  const lines = text.split("\n");
+  const parts = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    if (isLifeBurstStart(lines[i])) {
+      const blockLines = [];
+      while (i < lines.length) {
+        // Stop if a new non-LB ability begins (text can follow Life Burst)
+        if (blockLines.length > 0 && isOtherAbilityStart(lines[i])) break;
+        blockLines.push(lines[i]);
+        i++;
+      }
+      // Drop trailing blank lines inside the block for tighter padding
+      while (blockLines.length && !blockLines[blockLines.length - 1].trim()) {
+        blockLines.pop();
+      }
+      const inner = blockLines.map((line) => `<p>${renderLine(line)}</p>`).join("");
+      parts.push(`<div class="life-burst-block">${inner}</div>`);
+    } else {
+      parts.push(`<p>${renderLine(lines[i])}</p>`);
+      i++;
+    }
+  }
+
+  return parts.join("");
 }
 
 function renderLine(line) {

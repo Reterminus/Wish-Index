@@ -353,7 +353,6 @@ function renderModal() {
   // html: true → value already contains safe icon markup (cost orbs, etc.)
   // Type, Color, and Life Burst are intentionally omitted from the facts list
   const facts = [
-    ["Set", card.setcodes?.length ? card.setcodes.join(", ") : null, false],
     ["Level", card.level != null ? String(card.level) : null, false],
     ["Limit", card.limit != null ? String(card.limit) : null, false],
     ["Power", card.power != null ? String(card.power) : null, false],
@@ -364,6 +363,7 @@ function renderModal() {
     ["Grow Cost", card.growCost?.length ? renderCostIcons(card.growCost) : null, true],
     ["Coin", card.coin?.length ? renderCostIcons(card.coin) : null, true],
     ["Cost", card.cost?.length ? renderCostIcons(card.cost) : null, true],
+    ["Set", card.setcodes?.length ? card.setcodes.join(", ") : null, false],
     ["Illustrator", card.illustrator || null, false],
   ].filter(([, value]) => value != null && value !== "");
 

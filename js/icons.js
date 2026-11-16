@@ -9,13 +9,13 @@ export const ICON_MAP = {
 
   Down: { kind: "image", src: "icons/down.png", label: "Down" },
 
-  Blue0: { kind: "image", src: "icons/blue.png", label: "Blue 0" },
+  Blue0: { kind: "image", src: "icons/blue0.png", label: "Blue 0" },
+  White0: { kind: "image", src: "icons/white0.png", label: "White 0" },
   Turn1: { kind: "pill", label: "Turn 1", tone: "ink" },
   Turn2: { kind: "pill", label: "Turn 2", tone: "ink" },
   Game1: { kind: "pill", label: "Game 1", tone: "ink" },
-  LifeBurst: { kind: "image", src: "icons/lifeburst.png", label: "Life Burst" },
+  "Life Burst": { kind: "image", src: "icons/lifeburst.png", label: "Life Burst" },
   Coin: { kind: "image", src: "icons/coin.png", label: "Coin" },
-
 
   Auto: { kind: "pill", label: "Auto", tone: "auto" },
   Action: { kind: "pill", label: "Action", tone: "action" },

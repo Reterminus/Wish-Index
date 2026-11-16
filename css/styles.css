@@ -537,6 +537,26 @@ label.block .field { margin-top: 0.35rem; }
 html.dark .icon-pill.ink { background: #e8eef6; color: #0c1118; }
 
 .card-text p { margin: 0 0 0.55rem; }
+.card-text p:last-child { margin-bottom: 0; }
+
+/* Life Burst ability block — distinct from regular rules text */
+.life-burst-block {
+  margin: 0.65rem 0 0.55rem;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--ink) 9%, #e8edf4);
+  border: 1px solid color-mix(in srgb, var(--ink) 14%, var(--line));
+  border-left: 3px solid var(--pink-deep);
+}
+.life-burst-block p { margin: 0 0 0.45rem; }
+.life-burst-block p:last-child { margin-bottom: 0; }
+
+html.dark .life-burst-block {
+  background: color-mix(in srgb, var(--pink) 10%, #0e141c);
+  border-color: color-mix(in srgb, var(--pink) 22%, var(--line));
+  border-left-color: var(--pink);
+}
+
 
 .deck-toolbar {
   display: flex;
